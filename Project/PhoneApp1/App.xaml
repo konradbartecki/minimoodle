@@ -1,0 +1,38 @@
+﻿<Application
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.GrupyData" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:PhoneApp1" xmlns:SampleData1="clr-namespace:Expression.Blend.SampleData.StudenciData" xmlns:SampleData2="clr-namespace:Expression.Blend.SampleData.MaterialyData" xmlns:SampleData3="clr-namespace:Expression.Blend.SampleData.WykladowcyData" xmlns:SampleData4="clr-namespace:Expression.Blend.SampleData.PytaniaData" xmlns:SampleData5="clr-namespace:Expression.Blend.SampleData.EgzaminData" mc:Ignorable="d"
+    x:Class="PhoneApp1.App"
+    >
+
+    <!--Application Resources-->
+    <Application.Resources>
+    	<SampleData4:PytaniaData x:Key="PytaniaData" d:IsDataSource="True"/>
+    	<SampleData5:EgzaminData x:Key="EgzaminData" d:IsDataSource="True"/>
+    	<SampleData2:MaterialyData x:Key="MaterialyData" d:IsDataSource="True"/>
+    	<SampleData3:WykladowcyData x:Key="WykladowcyData" d:IsDataSource="True"/>
+    	<SampleData1:StudenciData x:Key="StudenciData" d:IsDataSource="True"/>
+    	<local:ThemeLogoConverter x:Key="ThemeLogoConverter"/>
+    	<SampleData:GrupyData x:Key="GrupyData" d:IsDataSource="True"/>
+    	<local:LocalizedStrings xmlns:local="clr-namespace:PhoneApp1" x:Key="LocalizedStrings"/>
+    	<SolidColorBrush x:Key="MiniMoodleAccent" Color="#FF385DAE"/>
+    	<DataTemplate x:Key="PanoramaLogoTemplate">
+    		<Grid Height="200" Width="634">
+    			<Image x:Name="image" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding Name, Converter={StaticResource ThemeLogoConverter}, ElementName=image}"/>
+    		</Grid>
+    	</DataTemplate>
+
+    	<shell:ApplicationBar x:Key="AppBar1" IsVisible="True" ForegroundColor="#FF385DAE">
+    		<shell:ApplicationBarIconButton IconUri="/Assets1/AppBar/add.png" Text="Dołącz" />
+    	</shell:ApplicationBar>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+    	<shell:PhoneApplicationService
+    		Launching="Application_Launching" Closing="Application_Closing"
+    		Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

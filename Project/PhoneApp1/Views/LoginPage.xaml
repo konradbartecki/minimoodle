@@ -1,0 +1,94 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:es="clr-namespace:Microsoft.Expression.Shapes;assembly=Microsoft.Expression.Drawing"
+    xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.LoginData"
+    xmlns:local="clr-namespace:PhoneApp1"
+    xmlns:SampleData1="clr-namespace:Expression.Blend.SampleData.LoginDataDesign"
+    x:Class="PhoneApp1.LoginPage"
+    mc:Ignorable="d"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Foreground="Black">
+
+
+	<phone:PhoneApplicationPage.Resources>
+		<SampleData1:LoginDataDesign x:Key="LoginDataDesign" d:IsDataSource="True"/>
+		<local:ThemeLogoConverter x:Key="ThemeLogoConverter"/>
+		<local:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+		<SampleData:LoginData x:Key="LoginData" d:IsDataSource="True"/>
+	</phone:PhoneApplicationPage.Resources>
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+
+
+<phone:PhoneApplicationPage.ApplicationBar>
+    <shell:ApplicationBar IsVisible="True" ForegroundColor="#FF385DAE">
+    	<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/check.png" Text="zaloguj" Click="ApplicationBarIconButton_Click"/>
+    </shell:ApplicationBar>
+</phone:PhoneApplicationPage.ApplicationBar>
+<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding Source={StaticResource LoginData}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="161"/>
+			<RowDefinition Height="607"/>
+		</Grid.RowDefinitions>
+
+		<!-- LOCALIZATION NOTE:
+            To localize the displayed strings copy their values to appropriately named
+            keys in the app's neutral language resource file (AppResources.resx) then
+            replace the hard-coded text value between the attributes' quotation marks
+            with the binding clause whose path points to that string name.
+
+            For example:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            This binding points to the template's string resource named "ApplicationTitle".
+
+            Adding supported languages in the Project Properties tab will create a
+            new resx file per language that can carry the translated values of your
+            UI strings. The binding in these examples will cause the value of the
+            attributes to be drawn from the .resx file that matches the
+            CurrentUICulture of the app at run time.
+         -->
+
+		
+
+		<!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+    <!--TitlePanel contains the name of the application and page title-->
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,44">
+			<Image Height="143" Margin="0" Stretch="Fill" Width="458" VerticalAlignment="Top" HorizontalAlignment="Left" Source="{Binding Converter={StaticResource ThemeLogoConverter}, Mode=OneWay}"/>
+		</StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Margin="12,10,12,3" Grid.Row="1">
+			
+			<StackPanel Margin="0">
+				<Grid Margin="0">
+					<ToggleButton x:Name="StudentChoiceButton" BorderBrush="{StaticResource MiniMoodleAccent}" Content="Student" Margin="0,0,250,0" HorizontalAlignment="Right" Width="206" IsChecked="{Binding Collection[0].IsStudent, Mode=TwoWay}"/>
+					<ToggleButton x:Name="WykladowcaChoiceButton" Content="Wykładowca" BorderBrush="{StaticResource MiniMoodleAccent}" Margin="206,0,0,0" IsChecked="{Binding Collection[0].IsStudent, Converter={StaticResource InverseBooleanConverter}}"/>
+				</Grid>
+				<TextBox Height="72" TextWrapping="Wrap" Text="{Binding Collection[0].LoginName, Mode=TwoWay}" BorderBrush="{StaticResource MiniMoodleAccent}" InputScope="LogOnName"/>
+				<PasswordBox BorderBrush="{StaticResource MiniMoodleAccent}" Password="{Binding Collection[0].Password}"/>
+			</StackPanel>
+		</Grid>
+
+		
+
+	</Grid>
+
+
+</phone:PhoneApplicationPage>
