@@ -24,7 +24,7 @@
     	</DataTemplate>
 
     	<shell:ApplicationBar x:Key="AppBar1" IsVisible="True" ForegroundColor="#FF385DAE">
-    		<shell:ApplicationBarIconButton IconUri="/Assets1/AppBar/add.png" Text="Dołącz" />
+    		<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png" Text="Dołącz" />
     	</shell:ApplicationBar>
     </Application.Resources>
 

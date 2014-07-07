@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\ThemeLogoConverter.cs" />
@@ -147,6 +148,7 @@
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ApplicationDefinition>
     <Page Include="SampleData\EgzaminData\EgzaminData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -208,18 +210,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets1\AppBar\add.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets2\AppBar\back.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets3\AppBar\next.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets4\AppBar\save.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\AppBar\check.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -251,6 +241,18 @@
   </ItemGroup>
   <ItemGroup>
     <DesignTimeOnly Include="SampleData\LoginData\LoginData.xsd" />
+    <Content Include="Assets\AppBar\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\next.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\Icon-Tiles\Egzaming.png" />
     <Resource Include="Assets\Icon-Tiles\GroupLogo.png" />
     <Resource Include="Assets\Icon-Tiles\Materialy\Book.png" />

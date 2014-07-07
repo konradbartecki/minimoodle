@@ -14,9 +14,9 @@
     shell:SystemTray.IsVisible="True">
 	<phone:PhoneApplicationPage.ApplicationBar>
     <shell:ApplicationBar IsVisible="True" ForegroundColor="#FF385DAE">
-    	<shell:ApplicationBarIconButton IconUri="/Assets2/AppBar/back.png" Text="wstecz"/>
-		<shell:ApplicationBarIconButton IconUri="/Assets4/AppBar/save.png" Text="zapisz"/>
-		<shell:ApplicationBarIconButton IconUri="/Assets3/AppBar/next.png" Text="do prozdu"/>
+    	<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" Text="wstecz"/>
+		<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/save.png" Text="zapisz"/>
+		<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" Text="do prozdu"/>
     </shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
